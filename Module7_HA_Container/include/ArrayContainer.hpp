@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cassert> // for assert()
+#include "Exceptions.hpp"
 
 class IntArray
 {
@@ -18,6 +19,8 @@ public:
     void erase();
 
     int& operator[](int index);
+    
+    void copy(IntArray& array);
 
     // reallocate resizes the array.  Any existing elements will be destroyed.  This function operates quickly.
     void reallocate(int newLength);
@@ -32,6 +35,8 @@ public:
     // A couple of additional functions just for convenience
     void insertAtBeginning(int value);
     void insertAtEnd(int value);
+
+    int findElement(int value);
 
     int getLength() const;
 };

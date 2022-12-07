@@ -1,17 +1,18 @@
 #include "ArrayContainer.hpp"
 
-
 IntArray::IntArray(int length):
         _m_length{ length }
 {
-    assert(length >= 0);
-    if (length > 0)
-        _m_data = new int[length]{};
+    if (length <= 0) {
+        throw BadLength();
+    }
+    _m_data = new int[length]{};
 }
 
 IntArray::~IntArray()
 {
     delete[] _m_data;
+    std::cout << "Destructor" << std::endl;
     // we don't need to set _m_data to null or _m_length to 0 here, since the object will be destroyed immediately after this function anyway
 }
 
@@ -26,10 +27,36 @@ void IntArray::erase()
 
 int& IntArray::operator[](int index)
 {
-    assert(index >= 0 && index < _m_length);
+    bool condition = index >= 0 && index < _m_length;
+    if (!condition) {
+        throw BadRange();
+    }
     return _m_data[index];
 }
 
+void IntArray::copy(IntArray& array) {
+    array._m_length = this->_m_length;
+    array._m_data = new int[this->_m_length]{};
+    for (int i = 0; i < this->_m_length; ++i) {
+        int a = this->_m_data[i];
+        array[i] = a;
+    }
+    array._m_length = this->_m_length;
+}
+
+int IntArray::findElement(int value) {
+    /**
+     * -1 - element wasn't found
+    */
+    int idx = -1;
+    for (int i = 0; i < _m_length; ++i) {
+        if (value == _m_data[i]) {
+            idx = i;
+            break;
+        }
+    }
+    return idx;
+}
 // reallocate resizes the array.  Any existing elements will be destroyed.  This function operates quickly.
 void IntArray::reallocate(int newLength)
 {
@@ -93,7 +120,10 @@ void IntArray::resize(int newLength)
 void IntArray::insertBefore(int value, int index)
 {
     // Sanity check our index value
-    assert(index >= 0 && index <= _m_length);
+    bool condition = index >= 0 && index <= _m_length;
+    if (!condition) {
+        throw BadRange();
+    }
 
     // First create a new array one element larger than the old array
     int* data{ new int[_m_length+1] };
@@ -118,7 +148,10 @@ void IntArray::insertBefore(int value, int index)
 void IntArray::remove(int index)
 {
     // Sanity check our index value
-    assert(index >= 0 && index < _m_length);
+    bool condition = index >= 0 && index < _m_length;
+    if (!condition) {
+        throw BadRange();
+    }
 
     // If we're removing the last element in the array, we can just erase the array and return early
     if (_m_length == 1)
