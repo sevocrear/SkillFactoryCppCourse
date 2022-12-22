@@ -1,3 +1,195 @@
 #include "ArrayContainer.hpp"
 
 // TODO: How to define template class functions here?
+template <typename X>IntArray<X>::IntArray(int n)
+{
+    _m_length = n;
+    if (n <= 0) {
+    throw BadLength();
+    }
+    _m_data = new X[n]{};
+}
+
+template <typename X>IntArray<X>::~IntArray()
+{
+    delete[] _m_data;
+    std::cout << "Final Destructor" << std::endl;
+    // we don't need to set _m_data to null or _m_length to 0 here, since the object will be destroyed immediately after this function anyway
+}
+
+template <typename X> void IntArray<X>::erase()
+{
+    delete[] _m_data;
+    // We need to make sure we set _m_data to nullptr here, otherwise it will
+    // be left pointing at deallocated memory!
+    _m_data = nullptr;
+    _m_length = 0;
+}
+
+template <typename X> X& IntArray<X>::operator[](int index) {
+    bool condition = index >= 0 && index < _m_length;
+    if (!condition) {
+        throw BadRange();
+    }
+    return _m_data[index];
+}
+
+// Конструктор копирования
+template <typename X> IntArray<X>::IntArray(IntArray& a) { 
+	_m_length = a._m_length;				// Копируем значение поля размера массива
+	_m_data = new X[_m_length];				// Выделяем память для нового массива
+	for (auto i = 0; i < _m_length; i++) 	
+		_m_data[i] = a._m_data[i];			// Копируем элементы массива
+}
+
+// Оператор присваивания
+template <typename X> IntArray<X>& IntArray<X>::operator=(IntArray& a) { 
+	if (this != &a) {			// Проверяем, чтобы не присвоить массив сам в себя, this указатель на текущий объект в памяти
+		_m_length = a._m_length;		// Копируем значение поля размера массива
+		delete [] _m_data;		// Освобождаем память от старого массива
+		_m_data = new X[_m_length];	        // Выделяем память в куче для нового массива
+		for (auto i = 0; i < _m_length; i++) 
+			_m_data[i] = a._m_data[i];  // Копируем элементы массива
+	}
+	return *this;  // Возвращаем указатель на новый объект
+}
+
+// reallocate resizes the array.  Any existing elements will be destroyed.  This function operates quickly.
+template <typename X> void IntArray<X>::reallocate(int newLength)
+{
+    // First we delete any existing elements
+    this->erase();
+
+    // If our array is going to be empty now, return here
+    if (newLength <= 0)
+        return;
+
+    // Then we have to allocate new elements
+    _m_data = new X[newLength];
+    _m_length = newLength;
+}
+
+// resize resizes the array.  Any existing elements will be kept.  This function operates slowly.
+template <typename X> void IntArray<X>::resize(int newLength)
+{
+    // if the array is already the right length, we're done
+    if (newLength == _m_length)
+        return;
+
+    // If we are resizing to an empty array, do that and return
+    if (newLength <= 0)
+    {
+        erase();
+        return;
+    }
+
+    // Now we can assume newLength is at least 1 element.  This algorithm
+    // works as follows: First we are going to allocate a new array.  Then we
+    // are going to copy elements from the existing array to the new array.
+    // Once that is done, we can destroy the old array, and make _m_data
+    // point to the new array.
+
+    // First we have to allocate a new array
+    X* data{ new X[newLength] };
+
+    // Then we have to figure out how many elements to copy from the existing
+    // array to the new array.  We want to copy as many elements as there are
+    // in the smaller of the two arrays.
+    if (_m_length > 0)
+    {
+        int elementsToCopy{ (newLength > _m_length) ? _m_length : newLength };
+
+        // Now copy the elements one by one
+        for (int index{ 0 }; index < elementsToCopy; ++index)
+            data[index] = _m_data[index];
+    }
+
+    // Now we can delete the old array because we don't need it any more
+    delete[] _m_data;
+
+    // And use the new array instead!  Note that this simply makes _m_data point
+    // to the same address as the new array we dynamically allocated.  Because
+    // data was dynamically allocated, it won't be destroyed when it goes out of scope.
+    _m_data = data;
+    _m_length = newLength;
+}
+
+template <typename X> void IntArray<X>::insertBefore(X value, int index) 
+{
+    // Sanity check our index value
+    bool condition = index >= 0 && index <= _m_length;
+    if (!condition) {
+        throw BadRange();
+    }
+
+    // First create a new array one element larger than the old array
+    X* data{ new X[_m_length+1] };
+
+    // Copy all of the elements up to the index
+    for (int before{ 0 }; before < index; ++before)
+        data[before] = _m_data[before];
+
+    // Insert our new element into the new array
+    data[index] = value;
+
+    // Copy all of the values after the inserted element
+    for (int after{ index }; after < _m_length; ++after)
+        data[after+1] = _m_data[after];
+
+    // Finally, delete the old array, and use the new array instead
+    delete[] _m_data;
+    _m_data = data;
+    ++_m_length;
+}
+template <typename X> void IntArray<X>::remove(int index)
+{
+    // Sanity check our index value
+    bool condition = index >= 0 && index < _m_length;
+    if (!condition) {
+        throw BadRange();
+    }
+
+    // If we're removing the last element in the array, we can just erase the array and return early
+    if (_m_length == 1)
+    {
+        erase();
+        return;
+    }
+
+    // First create a new array one element smaller than the old array
+    X* data{ new X[_m_length-1] };
+
+    // Copy all of the elements up to the index
+    for (int before{ 0 }; before  < index; ++before)
+        data[before] = _m_data[before];
+
+    // Copy all of the values after the removed element
+    for (int after{ index+1 }; after < _m_length; ++after)
+        data[after-1] = _m_data[after];
+    delete[] _m_data;
+    std::cout << "Destructor" << std::endl;
+    _m_data = data;
+    --_m_length;
+    // we don't need to set _m_data to null or _m_length to 0 here, since the object will be destroyed immediately after this function anyway
+}
+
+// A couple of additional functions just for convenience
+template <typename X> void IntArray<X>::insertAtBeginning(X value) { insertBefore(value, 0); }
+template <typename X> void IntArray<X>::insertAtEnd(X value) { insertBefore(value, _m_length); }
+
+template <typename X> int IntArray<X>::findElement(X value)
+{
+    /**
+     * -1 - element wasn't found
+    */
+    int idx = -1;
+    for (int i = 0; i < _m_length; ++i) {
+        if (value == _m_data[i]) {
+            idx = i;
+            break;
+        }
+    }
+    return idx;
+}   
+
+template <typename X> int IntArray<X>::getLength() const { return _m_length; }

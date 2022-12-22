@@ -6,14 +6,14 @@
  * Напишите объявление и реализацию данного контейнера в двух разных файлах (h и сpp), а в функции main протестируйте все пограничные случаи и убедитесь, что ваш контейнер безопасен!
 */
 #include <iostream>
-#include "include/ArrayContainer.hpp"
+#include "include/ArrayContainer.cpp"
 
 int main()
 {
     try {
         // Declare an array with 10 elements
         const int length = 10;
-        IntArray<float, length> array;
+        IntArray<float> array(length);
 
         // Fill the array with numbers 1 through 10
         for (int i{ 0 }; i<length; ++i)
@@ -22,9 +22,9 @@ int main()
         // Print out all the numbers
         for (int i{ 0 }; i<array.getLength(); ++i)
             std::cout << array[i] << ' ';
+        std::cout << '\n';
         //Copy array
-        IntArray<float, length> array2;
-        array.copy(array2);
+        IntArray<float> array2(array);
 
         // Print out all the numbers
         for (int i{ 0 }; i<array2.getLength(); ++i)
@@ -55,7 +55,7 @@ int main()
         // Type String
         std::cout << "STRING TYPE:" << std::endl;
 
-        IntArray<std::string, length> array1;
+        IntArray<std::string> array1(length);
 
         // Fill the array with numbers 1 through 10
         for (int i{ 0 }; i<length; ++i)
@@ -65,8 +65,7 @@ int main()
         for (int i{ 0 }; i<array1.getLength(); ++i)
             std::cout << array1[i] << ' ';
         //Copy array
-        IntArray<std::string, length> array3;
-        array1.copy(array3);
+        IntArray<std::string> array3(array1);
 
         // Print out all the numbers
         for (int i{ 0 }; i<array3.getLength(); ++i)
@@ -79,9 +78,14 @@ int main()
         // Insert the number 20 before element with index 5
         array3.insertBefore("also_string", 5);
 
+        // Print out all the numbers
+        for (int i{ 0 }; i<array3.getLength(); ++i)
+            std::cout << array3[i] << ' ';
+        std::cout << '\n';
+
         // Remove the element with index 3
         array3.remove(3);
-
+    
         // Add 30 and 40 to the end and beginning
         array3.insertAtEnd("Hi");
         array3.insertAtBeginning("Boo");
