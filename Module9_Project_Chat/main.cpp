@@ -1,5 +1,5 @@
 #include "include/Chat.hpp"
-
+// Inspired by "Webinar "Writing a console chat with a mentor"" by SkillFactory
 int main()
 {
     Chat chat;

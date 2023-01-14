@@ -22,7 +22,8 @@ class Chat{
         void sign_up();
         // void showChat() const;
         // void showAllUsersNames() const;
-        // void writeMessage();
+        void write_message();
+        void read_messages();
 
     public:
         void start();
@@ -31,5 +32,6 @@ class Chat{
         void showChatMenu();
         std::shared_ptr<User> getCurrentUser() const {return currentUser_;}
         std::shared_ptr<User> getUserByLogin(const std::string& login);
+        bool doesAliasExist(std::string& alias);
         
 };
