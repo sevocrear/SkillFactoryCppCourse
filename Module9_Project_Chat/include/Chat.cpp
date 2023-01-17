@@ -21,7 +21,7 @@ std::shared_ptr<User> Chat::getUserByLogin(const std::string &login)
     return current_user;
 }
 
-void Chat::login()
+void Chat::log_in()
 {
     /// @brief Logins into the chat by given log-pass
     std::string login, password;
@@ -128,7 +128,7 @@ void Chat::showMainMenu()
             sign_up();
             break;
         case '1': // Login
-            login();
+            log_in();
             break;
         case '2':
             doesChatWork_ = false;

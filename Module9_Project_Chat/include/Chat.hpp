@@ -18,7 +18,7 @@ class Chat{
         std::vector<User> users_;
         std::vector<Message> messages_;
 
-        void login();
+        void log_in();
         void sign_up();
         // void showChat() const;
         // void showAllUsersNames() const;
