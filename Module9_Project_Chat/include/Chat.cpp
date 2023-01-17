@@ -55,7 +55,7 @@ void Chat::login()
     std::cout << "\x1B[32mLogin Successful!\033[0m\t\t" << std::endl;
 }
 
-bool Chat::doesAliasExist(std::string &alias)
+bool Chat::doesAliasExist(const std::string &alias)
 {
     /// @brief Checks if user with @alias exists.
     /// @param alias - user's alias

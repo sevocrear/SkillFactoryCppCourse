@@ -32,6 +32,6 @@ class Chat{
         void showChatMenu();
         std::shared_ptr<User> getCurrentUser() const {return currentUser_;}
         std::shared_ptr<User> getUserByLogin(const std::string& login);
-        bool doesAliasExist(std::string& alias);
+        bool doesAliasExist(const std::string& alias);
         
 };
