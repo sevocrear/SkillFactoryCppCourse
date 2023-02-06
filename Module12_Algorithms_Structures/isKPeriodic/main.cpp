@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-bool IsKPeriodic(const string& str, const int  k) {
+bool IsKPeriodic(const string& str, const int&  k) {
     // One character strings are trivially periodic.
     if (k == 0) return false;
 
