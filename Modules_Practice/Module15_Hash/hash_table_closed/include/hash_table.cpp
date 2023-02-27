@@ -9,22 +9,6 @@ HashTable::~HashTable() {
     delete[] array;
 }
 
-void HashTable::add(FruitName fr_name, int fr_count) {
-    int index = -1, i = 0;
-    // берем пробы по всем i от 0 до размера массива
-    for(;i < mem_size; i++) {
-        index = hash_func(fr_name, i);
-        if(array[index].status == enPairStatus::free) { 
-            // найдена пустая ячейка, занимаем ее
-            break;
-        }
-    }
-    if(i >= mem_size) return; // все перебрали, нет места
-    
-    // кладем в свободную ячейку пару
-    array[index] = Pair(fr_name, fr_count);
-    count++;
-}
 int HashTable::hash_func(FruitName fr_name, int offset) {
     // вычисляем индекс
     int sum = 0, i = 0;
@@ -65,4 +49,42 @@ int HashTable::find(FruitName fr_name) {
         }
     }
     return -1;
+}
+
+void HashTable::resize() {
+    
+    Pair* save = array;
+    int save_ms = mem_size;
+    
+    mem_size *= 2;
+    array = new Pair[mem_size];
+    count = 0;
+    
+    for(int i=0; i<save_ms; i++) {
+        Pair& old_pair = save[i];
+        if(old_pair.status == enPairStatus::engaged) {
+            add(old_pair.fruit_name, old_pair.fruit_count);
+        }
+    }
+    
+    delete[] save;
+}
+void HashTable::add(FruitName fr_name, int fr_count) {
+    int index = -1, i = 0;
+    // берем пробы по всем i от 0 до размера массива
+    for(;i < mem_size; i++) {
+        index = hash_func(fr_name, i);
+        if(array[index].status == enPairStatus::free) { 
+            // найдена пустая ячейка, занимаем ее
+            break;
+        }
+    }
+
+    if(i >= mem_size) {
+        resize();
+        add(fr_name, fr_count);
+    } else {
+        array[index] = Pair(fr_name, fr_count);
+        count++;        
+    }
 }

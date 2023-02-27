@@ -57,7 +57,7 @@ class HashTable { // хэш таблица
             
             enPairStatus status;
         };
-    
+        void resize();
         int hash_func(FruitName fr_name, int offset);
         
         Pair* array;
