@@ -13,12 +13,12 @@ int HashTable::hash_func(LoginName login, int offset) {
     // вычисляем индекс
     int sum = 0, i = 0;
     for(; i < strlen(login); i++) {
-        sum += login[i];
+        sum = sum*25 + login[i]; // метод умноженя
     }
     // второе хеширование
     int f2 = sum % (mem_size * 2);
     // проба
-    return (sum % mem_size + offset*f2) % mem_size; 
+    return (sum % mem_size + offset*offset) % mem_size; // квадратичны метод составления хэш-таблицы 
 }  
 
 std::string HashTable::hash_pass(std::string pass) {
