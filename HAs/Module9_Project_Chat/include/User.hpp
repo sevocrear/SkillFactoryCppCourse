@@ -8,7 +8,7 @@ class User {
         std::string alias_; // alias as in telegram, for ex., to identificate users in chat
         std::string name_; 
     public:
-        User(const std::string& login, const std::string& password, const std::string& alias, const std::string& name): login_(login), password_(password), alias_(alias), name_(name) {}
+        User(const std::string& login, const std::string& alias, const std::string& name): login_(login), alias_(alias), name_(name) {}
 
         void setUserName(const std::string& name) {name_ = name;}
         const std::string& getUserName() const {return name_;}

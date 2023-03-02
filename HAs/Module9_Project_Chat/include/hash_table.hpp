@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string.h>
 
-#define NAMELENGTH 10  // Зафикcируем длину login
+#define NAMELENGTH 40  // Зафикcируем длину login
 
 typedef char LoginName[NAMELENGTH]; // тип имя фрукта
 
@@ -14,7 +14,7 @@ class HashTable { // хэш таблица
         void add(LoginName login, std::string pass);
         void del(LoginName login);
         std::string find(LoginName login);
-
+        std::string hash_pass(std::string pass);
     private:
     
         enum enPairStatus {
@@ -54,7 +54,6 @@ class HashTable { // хэш таблица
         };
         void resize();
         int hash_func(LoginName login, int offset);
-        std::string hash_pass(std::string pass);
         Pair* array;
         int mem_size;
         int count;

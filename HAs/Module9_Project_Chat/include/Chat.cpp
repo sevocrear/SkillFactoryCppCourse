@@ -35,8 +35,7 @@ void Chat::log_in()
         std::cin >> password;
 
         currentUser_ = getUserByLogin(login);
-
-        if (currentUser_ == nullptr || (password != currentUser_->getUserPassword()))
+        if (currentUser_ == nullptr || (hash_table_.hash_pass(password) != hash_table_.find(login.data())))
         {
             currentUser_ = nullptr; // if password is wrong, reset current user
 
@@ -102,8 +101,10 @@ void Chat::sign_up()
         sign_up();
     }
 
-    User user = User(login, password, alias, name);
+    User user = User(login, alias, name);
     users_.push_back(user);
+    hash_table_.add(login.data(), password);
+    std::cout << hash_table_.find(login.data());
     currentUser_ = std::make_shared<User>(user);
     std::cout << "\x1B[32mRegistration Successful!\033[0m\t\t" << std::endl;
 }

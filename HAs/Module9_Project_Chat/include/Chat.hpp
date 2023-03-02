@@ -4,6 +4,7 @@
 #include "User.hpp"
 #include "Message.hpp"
 #include <iostream>
+#include "hash_table.hpp"
 
 struct UserLoginExp: public std::exception {
     const char *what() const noexcept override {return "ERROR: user login is busy";}
@@ -17,6 +18,7 @@ class Chat{
 
         std::vector<User> users_;
         std::vector<Message> messages_;
+        HashTable hash_table_;
 
         void log_in();
         void sign_up();
