@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/program.dir/include/Chat.cpp.o CMakeFiles/program.dir/include/Message.cpp.o CMakeFiles/program.dir/include/User.cpp.o CMakeFiles/program.dir/main.cpp.o -o program 
