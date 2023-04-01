@@ -7,13 +7,13 @@ int main() {
 
   // USERS INFO
   fstream user_file = fstream("users.txt", ios::in | ios::out);
-	if (!user_file) 
+	if (!user_file)  {
 		// Для создания файла используем параметр ios::trunc
-           user_file = fstream("users.txt", ios::in | ios::out | ios::trunc);
-	
-  fs::permissions("users.txt",
+    user_file = fstream("users.txt", ios::in | ios::out | ios::trunc);
+    fs::permissions("users.txt",
         fs::perms::group_write | fs::perms::others_all,
         fs::perm_options::remove);
+  }
 
 	if (user_file) {
     // Чтение файла

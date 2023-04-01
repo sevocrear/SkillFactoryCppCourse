@@ -1,0 +1,3 @@
+/media/sevocrear/ubuntu_files/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/SkillFactory/repositories/SkillFactoryCppCourse/Chat/build/CMakeFiles/program.dir
+/media/sevocrear/ubuntu_files/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/SkillFactory/repositories/SkillFactoryCppCourse/Chat/build/CMakeFiles/edit_cache.dir
+/media/sevocrear/ubuntu_files/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/SkillFactory/repositories/SkillFactoryCppCourse/Chat/build/CMakeFiles/rebuild_cache.dir
