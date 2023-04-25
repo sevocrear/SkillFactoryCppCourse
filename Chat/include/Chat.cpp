@@ -42,17 +42,24 @@ std::fstream Chat::openFile(const std::string &name)
 void Chat::readUsersInfo()
 {
     std::fstream user_file = this->openFile("users_info.txt");
-
-    if (user_file)
+    int users_file_len = std::count(std::istreambuf_iterator<char>(user_file), 
+             std::istreambuf_iterator<char>(), '\n');
+    user_file.seekp(0, std::ios::beg); // move to start
+    if (user_file && (users_len_ < users_file_len))
     {
         // Чтение файла и обновление списка пользователей
         User obj;
+        int idx = 0;
         while (!user_file.eof())
         {
             obj>>user_file;
-            users_.push_back(obj);
-            hash_table_.insert({obj.getUserLogin(), obj.getUserPassword()});
+            if (idx >= users_len_) {
+                users_.push_back(obj);
+                hash_table_.insert({obj.getUserLogin(), obj.getUserPassword()});
+            }
+            idx ++;
         }
+        users_len_ = users_file_len;
     }
     else
     {
@@ -64,16 +71,23 @@ void Chat::readUsersInfo()
 void Chat::readMessagesInfo()
 {
     std::fstream file = this->openFile("messages_info.txt");
-
-    if (file)
+    int messages_file_len = std::count(std::istreambuf_iterator<char>(file), 
+             std::istreambuf_iterator<char>(), '\n');
+    file.seekp(0, std::ios::beg); // move to start
+    if (file && (messages_len_ < messages_file_len))
     {
         // Чтение файла и обновление списка пользователей
         Message obj;
+        int idx = 0;
         while (!file.eof())
         {
             obj>>file;
-            messages_.push_back(obj);
+            if (idx >= messages_len_) {
+                messages_.push_back(obj);
+            }
+            idx ++;
         }
+        messages_len_ = messages_file_len;
     }
     else
     {
@@ -270,6 +284,9 @@ void Chat::write_message()
 
 void Chat::read_messages()
 {
+    // Get Info From txt files
+    this->readUsersInfo();
+    this->readMessagesInfo();
     std::cout << "\x1B[90m\nStart of the Chat\n\033[0m\t\t" << std::endl;
 
     for (auto &message : messages_)

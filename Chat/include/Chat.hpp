@@ -20,7 +20,9 @@ class Chat{
         bool doesChatWork_ = false;
 
         std::vector<User> users_;
+        int users_len_ = 0;
         std::vector<Message> messages_;
+        int messages_len_ = 0;
         std::unordered_map<std::string, std::string> hash_table_;
 
         void log_in();
