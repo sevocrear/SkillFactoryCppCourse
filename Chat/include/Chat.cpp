@@ -50,10 +50,12 @@ void Chat::readUsersInfo()
         // Чтение файла и обновление списка пользователей
         User obj;
         int idx = 0;
-        while (!user_file.eof() && idx < users_file_len)
+        while (!user_file.eof() && (idx < users_file_len))
         {
             obj>>user_file;
             if (idx >= users_len_) {
+                std::cout << idx <<  " user "  << users_file_len << std::endl;
+                obj << std::cout;
                 users_.push_back(obj);
                 hash_table_.insert({obj.getUserLogin(), obj.getUserPassword()});
             }
@@ -77,13 +79,14 @@ void Chat::readMessagesInfo()
     if (file && (messages_len_ < messages_file_len))
     {
         // Чтение файла и обновление списка пользователей
-        int idx = 1;
-        while (!file.eof())
+        int idx = 0;
+        while (!file.eof() && (idx < messages_file_len))
         {
             Message obj;
             obj>>file;
-            if ((idx > messages_len_) || (messages_len_ == 0 && idx == 0)) {
-                std::cout << idx << std::endl;
+            if (idx >= messages_len_) {
+                std::cout << idx <<  " message "  << messages_file_len << std::endl;
+                obj << std::cout;
                 messages_.push_back(obj);
             }
             idx ++;
