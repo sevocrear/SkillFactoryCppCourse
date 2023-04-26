@@ -11,7 +11,6 @@ std::fstream& User::operator >>(std::fstream& is)
 }
 std::ostream& User::operator <<(std::ostream& os)
 {
-	os << std::endl;
 	os << login_;
 	os << ' ';
 	os << password_;
@@ -19,5 +18,6 @@ std::ostream& User::operator <<(std::ostream& os)
 	os << alias_;
     os << ' ';
 	os << name_;
+	os << std::endl;
 	return os;
 }

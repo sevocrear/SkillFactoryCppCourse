@@ -41,7 +41,7 @@ std::fstream Chat::openFile(const std::string &name)
 
 void Chat::readUsersInfo()
 {
-    std::fstream user_file = this->openFile("users_info.txt");
+    std::fstream user_file = this->openFile(users_file_path_);
     int users_file_len = std::count(std::istreambuf_iterator<char>(user_file), 
              std::istreambuf_iterator<char>(), '\n');
     user_file.seekp(0, std::ios::beg); // move to start
@@ -50,7 +50,7 @@ void Chat::readUsersInfo()
         // Чтение файла и обновление списка пользователей
         User obj;
         int idx = 0;
-        while (!user_file.eof())
+        while (!user_file.eof() && idx < users_file_len)
         {
             obj>>user_file;
             if (idx >= users_len_) {
@@ -61,45 +61,47 @@ void Chat::readUsersInfo()
         }
         users_len_ = users_file_len;
     }
-    else
+    else if (!user_file)
     {
-        std::cout << "Could not open file users.txt !" << '\n';
+        std::cout << "Could not open file "<< users_file_path_ << "!" << '\n';
         return;
     }
 }
 
 void Chat::readMessagesInfo()
 {
-    std::fstream file = this->openFile("messages_info.txt");
+    std::fstream file = this->openFile(messages_file_path_);
     int messages_file_len = std::count(std::istreambuf_iterator<char>(file), 
              std::istreambuf_iterator<char>(), '\n');
     file.seekp(0, std::ios::beg); // move to start
     if (file && (messages_len_ < messages_file_len))
     {
         // Чтение файла и обновление списка пользователей
-        Message obj;
-        int idx = 0;
+        int idx = 1;
         while (!file.eof())
         {
+            Message obj;
             obj>>file;
-            if (idx >= messages_len_) {
+            if ((idx > messages_len_) || (messages_len_ == 0 && idx == 0)) {
+                std::cout << idx << std::endl;
                 messages_.push_back(obj);
             }
             idx ++;
         }
         messages_len_ = messages_file_len;
     }
-    else
+    else if (!file)
     {
-        std::cout << "Could not open file messages_info.txt !" << '\n';
+        std::cout << "Could not open file "<< messages_file_path_ << "!" << '\n';
         return;
     }
 }
 
-void Chat::start()
+void Chat::start(std::string users_file_path, std::string messages_file_path)
 {
     doesChatWork_ = true;
-
+    users_file_path_ = users_file_path;
+    messages_file_path_ = messages_file_path;
     this->readUsersInfo();
     this->readMessagesInfo();
     // Read info from files about users and messages
@@ -210,7 +212,7 @@ void Chat::sign_up()
 
     // Update File
     User usr_obj = User(login, hash_pass(password), alias, name);
-    std::fstream file = this->openFile("users_info.txt");
+    std::fstream file = this->openFile(users_file_path_);
     file.seekp(0, std::ios::end); // move to end
     usr_obj<<file;
 
@@ -267,9 +269,8 @@ void Chat::write_message()
     if (doesAliasExist(to) || to == "all")
     {
         Message obj_msg = Message(currentUser_->getUserAlias(), to, text);
-        messages_.push_back(obj_msg);
         // Update File
-        std::fstream file = this->openFile("messages_info.txt");
+        std::fstream file = this->openFile(messages_file_path_);
         file.seekp(0, std::ios::end); // move to end
         obj_msg<<file;
 

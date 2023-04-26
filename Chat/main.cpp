@@ -6,7 +6,7 @@ int main()
 {
     Chat chat;
 
-    chat.start();
+    chat.start("../../users_info.txt", "../../messages_info.txt");
 
     while (chat.doesChatWork()) {
         chat.showMainMenu();

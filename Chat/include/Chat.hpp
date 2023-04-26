@@ -17,6 +17,7 @@ class Chat{
     private:
         std::shared_ptr<User> currentUser_ = nullptr;
 
+        std::string users_file_path_, messages_file_path_;
         bool doesChatWork_ = false;
 
         std::vector<User> users_;
@@ -34,7 +35,7 @@ class Chat{
 
         int hash_func(const std::string& login, int offset);
     public:
-        void start();
+        void start(std::string users_file_path, std::string messages_file_path);
         void readUsersInfo();
         void readMessagesInfo();
         std::fstream openFile(const std::string& name);

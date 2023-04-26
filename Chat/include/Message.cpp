@@ -10,11 +10,12 @@ std::fstream& Message::operator >>(std::fstream& is)
 }
 std::ostream& Message::operator <<(std::ostream& os)
 {
-	os << std::endl;
+	
 	os << from_;
 	os << ' ';
 	os << to_;
 	os << ' ';
 	os << text_;
+	os << std::endl;
 	return os;
 }
