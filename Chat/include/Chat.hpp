@@ -17,13 +17,13 @@ class Chat{
     private:
         std::shared_ptr<User> currentUser_ = nullptr;
 
-        std::string users_file_path_, messages_file_path_;
+        std::string users_file_path_, messages_file_path_send_, messages_file_path_receive_;
         bool doesChatWork_ = false;
 
         std::vector<User> users_;
         int users_len_ = 0;
         std::vector<Message> messages_;
-        int messages_len_ = 0;
+        int messages_len_receive_, messages_len_send_ = 0;
         std::unordered_map<std::string, std::string> hash_table_;
 
         void log_in();
@@ -35,9 +35,9 @@ class Chat{
 
         int hash_func(const std::string& login, int offset);
     public:
-        void start(std::string users_file_path, std::string messages_file_path);
+        void start(std::string users_file_path, std::string messages_file_path_send, std::string messages_file_path_receive);
         void readUsersInfo();
-        void readMessagesInfo();
+        void readMessagesInfo(std::string file_path, std::string flag = "receive");
         std::fstream openFile(const std::string& name);
 
         bool doesChatWork() const {return doesChatWork_;}

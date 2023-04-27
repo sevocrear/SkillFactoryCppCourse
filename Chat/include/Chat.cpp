@@ -54,8 +54,6 @@ void Chat::readUsersInfo()
         {
             obj>>user_file;
             if (idx >= users_len_) {
-                std::cout << idx <<  " user "  << users_file_len << std::endl;
-                obj << std::cout;
                 users_.push_back(obj);
                 hash_table_.insert({obj.getUserLogin(), obj.getUserPassword()});
             }
@@ -70,13 +68,23 @@ void Chat::readUsersInfo()
     }
 }
 
-void Chat::readMessagesInfo()
+void Chat::readMessagesInfo(std::string file_path, std::string flag)
 {
-    std::fstream file = this->openFile(messages_file_path_);
+    int msgs_len = 0;
+    if (flag == "receive") {
+        msgs_len = messages_len_receive_;
+    }
+    else if (flag == "send") {
+        msgs_len = messages_len_send_;
+    }
+    else {
+        return;
+    }
+    std::fstream file = this->openFile(file_path);
     int messages_file_len = std::count(std::istreambuf_iterator<char>(file), 
              std::istreambuf_iterator<char>(), '\n');
     file.seekp(0, std::ios::beg); // move to start
-    if (file && (messages_len_ < messages_file_len))
+    if (file && (msgs_len < messages_file_len))
     {
         // Чтение файла и обновление списка пользователей
         int idx = 0;
@@ -84,29 +92,35 @@ void Chat::readMessagesInfo()
         {
             Message obj;
             obj>>file;
-            if (idx >= messages_len_) {
-                std::cout << idx <<  " message "  << messages_file_len << std::endl;
-                obj << std::cout;
+            if (idx >= msgs_len) {
                 messages_.push_back(obj);
             }
             idx ++;
         }
-        messages_len_ = messages_file_len;
+        msgs_len = messages_file_len;
+        if (flag == "receive") {
+        messages_len_receive_ = messages_file_len;
+        }
+        else if (flag == "send") {
+            messages_len_send_ = messages_file_len;
+        }
     }
     else if (!file)
     {
-        std::cout << "Could not open file "<< messages_file_path_ << "!" << '\n';
+        std::cout << "Could not open file "<< file_path << "!" << '\n';
         return;
     }
 }
 
-void Chat::start(std::string users_file_path, std::string messages_file_path)
+void Chat::start(std::string users_file_path, std::string messages_file_path_send, std::string messages_file_path_receive)
 {
     doesChatWork_ = true;
     users_file_path_ = users_file_path;
-    messages_file_path_ = messages_file_path;
+    messages_file_path_send_ = messages_file_path_send;
+    messages_file_path_receive_ = messages_file_path_receive;
     this->readUsersInfo();
-    this->readMessagesInfo();
+    this->readMessagesInfo(messages_file_path_send_, "send");
+    this->readMessagesInfo(messages_file_path_receive_, "receive");
     // Read info from files about users and messages
 }
 
@@ -273,7 +287,7 @@ void Chat::write_message()
     {
         Message obj_msg = Message(currentUser_->getUserAlias(), to, text);
         // Update File
-        std::fstream file = this->openFile(messages_file_path_);
+        std::fstream file = this->openFile(messages_file_path_send_);
         file.seekp(0, std::ios::end); // move to end
         obj_msg<<file;
 
@@ -290,7 +304,8 @@ void Chat::read_messages()
 {
     // Get Info From txt files
     this->readUsersInfo();
-    this->readMessagesInfo();
+    this->readMessagesInfo(messages_file_path_send_, "send");
+    this->readMessagesInfo(messages_file_path_receive_, "receive");
     std::cout << "\x1B[90m\nStart of the Chat\n\033[0m\t\t" << std::endl;
 
     for (auto &message : messages_)

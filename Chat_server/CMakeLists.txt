@@ -10,7 +10,7 @@ file(GLOB SOURCES "*.cpp" "include/*.cpp")
 include_directories(include)
 
 # Add the executable target
-add_executable(chat ${SOURCES})
+add_executable(server ${SOURCES})
 
 # TODO: Add Client which reads messages_info and sends it to the net (if updated)
 # TODO: Add Server which receives messages from net and writes it to the messages_info
