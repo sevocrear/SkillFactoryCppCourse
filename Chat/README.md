@@ -1,2 +1,5 @@
 # SkillFactoryCppCourse
-The HAs, useful files,etc for the Cpp Course of SkillFactory
+
+Chat Program with PostgreSQL Database
+
+* Using this library: [taopq](https://github.com/taocpp/taopq)

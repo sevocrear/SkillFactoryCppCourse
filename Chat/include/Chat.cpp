@@ -1,5 +1,6 @@
 #include "Chat.hpp"
 namespace fs = std::filesystem;
+
 int Chat::hash_func(const std::string &login, int offset)
 {
     // вычисляем индекс
@@ -41,100 +42,86 @@ std::fstream Chat::openFile(const std::string &name)
 
 void Chat::readUsersInfo()
 {
-    std::fstream user_file = this->openFile(users_file_path_);
-    int users_file_len = std::count(std::istreambuf_iterator<char>(user_file), 
-             std::istreambuf_iterator<char>(), '\n');
-    user_file.seekp(0, std::ios::beg); // move to start
-    if (user_file && (users_len_ < users_file_len))
-    {
-        // Чтение файла и обновление списка пользователей
-        User obj;
-        int idx = 0;
-        while (!user_file.eof() && (idx < users_file_len))
-        {
-            obj>>user_file;
-            if (idx >= users_len_) {
-                users_.push_back(obj);
-                hash_table_.insert({obj.getUserLogin(), obj.getUserPassword()});
-            }
-            idx ++;
-        }
-        users_len_ = users_file_len;
-    }
-    else if (!user_file)
-    {
-        std::cout << "Could not open file "<< users_file_path_ << "!" << '\n';
-        return;
-    }
+    // query data
+   const auto users = conn_->execute("SELECT users.id, users.login, users.alias, users.name, users.surname, password_hashes.hash FROM users LEFT JOIN password_hashes ON users.id = password_hashes.user_id WHERE password_hashes.hash IS NOT NULL");
+
+   // iterate and convert results
+   for( const auto& row : users ) {
+      User obj(row["login"].as< std::string >(), row["hash"].as< std::string >(), row["alias"].as< std::string >(), row["name"].as< std::string >() + row["surname"].as< std::string >());
+      users_.push_back(obj);
+      hash_table_.insert({obj.getUserLogin(), obj.getUserPassword()});
+   }
 }
 
-void Chat::readMessagesInfo(std::string file_path, std::string flag)
+void Chat::readMessagesInfo()
 {
-    int msgs_len = 0;
-    if (flag == "receive") {
-        msgs_len = messages_len_receive_;
-    }
-    else if (flag == "send") {
-        msgs_len = messages_len_send_;
-    }
-    else {
-        return;
-    }
-    std::fstream file = this->openFile(file_path);
-    int messages_file_len = std::count(std::istreambuf_iterator<char>(file), 
-             std::istreambuf_iterator<char>(), '\n');
-    file.seekp(0, std::ios::beg); // move to start
-    if (file && (msgs_len < messages_file_len))
-    {
-        // Чтение файла и обновление списка пользователей
-        int idx = 0;
-        while (!file.eof() && (idx < messages_file_len))
-        {
-            Message obj;
-            obj>>file;
-            if (idx >= msgs_len) {
-                messages_.push_back(obj);
-            }
-            idx ++;
-        }
-        msgs_len = messages_file_len;
-        if (flag == "receive") {
-        messages_len_receive_ = messages_file_len;
-        }
-        else if (flag == "send") {
-            messages_len_send_ = messages_file_len;
-        }
-    }
-    else if (!file)
-    {
-        std::cout << "Could not open file "<< file_path << "!" << '\n';
-        return;
-    }
+    // int msgs_len = 0;
+    // if (flag == "receive") {
+    //     msgs_len = messages_len_receive_;
+    // }
+    // else if (flag == "send") {
+    //     msgs_len = messages_len_send_;
+    // }
+    // else {
+    //     return;
+    // }
+    // std::fstream file = this->openFile(file_path);
+    // int messages_file_len = std::count(std::istreambuf_iterator<char>(file), 
+    //          std::istreambuf_iterator<char>(), '\n');
+    // file.seekp(0, std::ios::beg); // move to start
+    // if (file && (msgs_len < messages_file_len))
+    // {
+    //     // Чтение файла и обновление списка пользователей
+    //     int idx = 0;
+    //     while (!file.eof() && (idx < messages_file_len))
+    //     {
+    //         Message obj;
+    //         obj>>file;
+    //         if (idx >= msgs_len) {
+    //             messages_.push_back(obj);
+    //         }
+    //         idx ++;
+    //     }
+    //     msgs_len = messages_file_len;
+    //     if (flag == "receive") {
+    //     messages_len_receive_ = messages_file_len;
+    //     }
+    //     else if (flag == "send") {
+    //         messages_len_send_ = messages_file_len;
+    //     }
+    // }
+    // else if (!file)
+    // {
+    //     std::cout << "Could not open file "<< file_path << "!" << '\n';
+    //     return;
+    // }
 }
 
-void Chat::start(std::string users_file_path, std::string messages_file_path_send, std::string messages_file_path_receive)
+void Chat::start()
 {
     doesChatWork_ = true;
-    users_file_path_ = users_file_path;
-    messages_file_path_send_ = messages_file_path_send;
-    messages_file_path_receive_ = messages_file_path_receive;
-    this->readUsersInfo();
-    this->readMessagesInfo(messages_file_path_send_, "send");
-    this->readMessagesInfo(messages_file_path_receive_, "receive");
-    // Read info from files about users and messages
+
+
+     // prepare statements
+    conn_->prepare( "insert_user", "INSERT INTO users ( login, alias, name, surname ) VALUES ( $1, $2, $3, $4 )" );
+    conn_->prepare("insert_hash_pass", "UPDATE password_hashes SET hash = $2 WHERE user_id = (SELECT id FROM users WHERE login = $1);");
+
 }
 
-std::shared_ptr<User> Chat::getUserByLogin(const std::string &login)
+std::shared_ptr<User>  Chat::getUserByLogin(const std::string &login)
 {
     /// @brief Finds user with given login if exists
     /// @param login
     /// @return std::shared_ptr<User> user
     std::shared_ptr<User> current_user = nullptr;
-    for (auto &user : users_)
-    {
-        if (login == user.getUserLogin())
+
+    const auto users = conn_->execute("SELECT users.id, users.login, users.alias, users.name, users.surname, password_hashes.hash FROM users LEFT JOIN password_hashes ON users.id = password_hashes.user_id WHERE password_hashes.hash IS NOT NULL AND login =  $1", login);
+    if (!users.empty()) {
+        for (const auto &row : users)
         {
-            current_user = std::make_shared<User>(user);
+            User obj(row["login"].as< std::string >(), row["hash"].as< std::string >(), row["alias"].as< std::string >(), row["name"].as< std::string >() + row["surname"].as< std::string >());
+            current_user = std::make_shared<User>(obj);
+            
         }
     }
     return current_user;
@@ -155,9 +142,10 @@ void Chat::log_in()
 
         currentUser_ = getUserByLogin(login);
 
-        std::unordered_map<std::string, std::string>::iterator it = hash_table_.find(login);
+        // Verify password
+        const auto password_ok = conn_->execute("SELECT EXISTS ( SELECT 1 FROM users INNER JOIN password_hashes ON users.id = password_hashes.user_id WHERE users.login = $1 AND password_hashes.hash = $2 );", login, hash_pass(password));
 
-        if (currentUser_ == nullptr || (it == hash_table_.end()) || (hash_pass(password) != it->second))
+        if (currentUser_ == nullptr || (!password_ok.at(0).as< bool>()))
         {
             currentUser_ = nullptr; // if password is wrong, reset current user
 
@@ -181,19 +169,14 @@ bool Chat::doesAliasExist(const std::string &alias)
     /// @brief Checks if user with @alias exists.
     /// @param alias - user's alias
     /// @return boolean. True is exists
-    for (auto &user : users_)
-    {
-        if (alias == user.getUserAlias())
-        {
-            return true;
-        }
-    }
-    return false;
+    const auto users = conn_->execute("SELECT users.id, users.login, users.alias, users.name, users.surname, password_hashes.hash FROM users LEFT JOIN password_hashes ON users.id = password_hashes.user_id WHERE password_hashes.hash IS NOT NULL AND alias =  $1", alias);
+
+    return !users.empty();
 }
 void Chat::sign_up()
 {
     /// @brief Signs up with given login, pass and name. Same logins aren't possible
-    std::string login, password, alias, name;
+    std::string login, password, alias, name, surname;
 
     std::cout << "\x1B[34mlogin (should be unique, private):\033[0m\t\t" << std::endl;
     std::cin >> login;
@@ -206,8 +189,10 @@ void Chat::sign_up()
 
     std::cout << "\x1B[34mname:\033[0m\t\t" << std::endl;
 
-    std::cin.ignore();
-    std::getline(std::cin, name);
+    std::cin >> name;
+
+    std::cout << "\x1B[34msurname:\033[0m\t\t" << std::endl;
+    std::cin >> surname;
 
     if (getUserByLogin(login))
     {
@@ -223,19 +208,27 @@ void Chat::sign_up()
         sign_up();
     }
 
-    User user = User(login, alias, name);
+    // Switch to User
+    User user = User(login, alias, name, surname);
+    currentUser_ = std::make_shared<User>(user);
+    
+    // Add USER to DATABASE
+    // begin transaction
+    const auto tr = conn_->transaction();
+
+    // execute previously prepared statements
+    tr->execute( "insert_user", login, alias, name, surname);
+    tr->execute("insert_hash_pass", login, hash_pass(password));
+    // commit transaction
+    tr->commit();
+
+
+
     users_.push_back(user);
     hash_table_.insert({login, hash_pass(password)});
 
-    // Update File
-    User usr_obj = User(login, hash_pass(password), alias, name);
-    std::fstream file = this->openFile(users_file_path_);
-    file.seekp(0, std::ios::end); // move to end
-    usr_obj<<file;
 
-    // std::unordered_map <std::string, std::string>::iterator it = hash_table_.find(login);
-    // std::cout << it->first << std::endl;
-    currentUser_ = std::make_shared<User>(user);
+
     std::cout << "\x1B[32mRegistration Successful!\033[0m\t\t" << std::endl;
 }
 
@@ -287,9 +280,9 @@ void Chat::write_message()
     {
         Message obj_msg = Message(currentUser_->getUserAlias(), to, text);
         // Update File
-        std::fstream file = this->openFile(messages_file_path_send_);
-        file.seekp(0, std::ios::end); // move to end
-        obj_msg<<file;
+        // std::fstream file = this->openFile(messages_file_path_send_);
+        // file.seekp(0, std::ios::end); // move to end
+        // obj_msg<<file;
 
         std::cout << "\x1B[32mMessage sent!\033[0m\t\t" << std::endl;
     }
@@ -304,8 +297,8 @@ void Chat::read_messages()
 {
     // Get Info From txt files
     this->readUsersInfo();
-    this->readMessagesInfo(messages_file_path_send_, "send");
-    this->readMessagesInfo(messages_file_path_receive_, "receive");
+    // this->readMessagesInfo(messages_file_path_send_, "send");
+    // this->readMessagesInfo(messages_file_path_receive_, "receive");
     std::cout << "\x1B[90m\nStart of the Chat\n\033[0m\t\t" << std::endl;
 
     for (auto &message : messages_)

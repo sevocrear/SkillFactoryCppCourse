@@ -8,6 +8,7 @@
 #include <string>
 #include <filesystem>
 #include <algorithm>
+#include <tao/pq.hpp>
 
 struct UserLoginExp: public std::exception {
     const char *what() const noexcept override {return "ERROR: user login is busy";}
@@ -15,9 +16,12 @@ struct UserLoginExp: public std::exception {
 
 class Chat{
     private:
+
+        // Connect to database
+        const std::shared_ptr<tao::pq::connection> conn_ = tao::pq::connection::create("dbname=chat_database user=postgres password=qwerty3215 host=localhost port=5432");
+
         std::shared_ptr<User> currentUser_ = nullptr;
 
-        std::string users_file_path_, messages_file_path_send_, messages_file_path_receive_;
         bool doesChatWork_ = false;
 
         std::vector<User> users_;
@@ -35,9 +39,9 @@ class Chat{
 
         int hash_func(const std::string& login, int offset);
     public:
-        void start(std::string users_file_path, std::string messages_file_path_send, std::string messages_file_path_receive);
+        void start();
         void readUsersInfo();
-        void readMessagesInfo(std::string file_path, std::string flag = "receive");
+        void readMessagesInfo();
         std::fstream openFile(const std::string& name);
 
         bool doesChatWork() const {return doesChatWork_;}

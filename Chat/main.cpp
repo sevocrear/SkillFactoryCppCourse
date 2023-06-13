@@ -6,7 +6,7 @@ int main()
 {
     Chat chat;
 
-    chat.start("users_info.txt", "messages_info_send.txt", "messages_info_receive.txt");
+    chat.start();
 
     while (chat.doesChatWork()) {
         chat.showMainMenu();
