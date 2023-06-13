@@ -15,7 +15,7 @@ class User {
 
         User(const std::string& login, const std::string& alias, const std::string& name, const std::string& surname): login_(login), alias_(alias), name_(name), surname_(surname) {}
 
-        User(const std::string& login, const std::string& pass, const std::string& alias, const std::string& name, const std::string& surname): login_(login), password_(pass), alias_(alias), name_(name), surname_(surname){}
+        User(const std::string& login, const std::string& alias, const std::string& pass, const std::string& name, const std::string& surname): login_(login), password_(pass), alias_(alias), name_(name), surname_(surname){}
 
         void setUserName(const std::string& name) {name_ = name;}
         const std::string& getUserName() const {return name_;}

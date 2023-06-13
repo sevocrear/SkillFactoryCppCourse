@@ -43,14 +43,15 @@ std::fstream Chat::openFile(const std::string &name)
 void Chat::readUsersInfo()
 {
     // query data
-   const auto users = conn_->execute("SELECT users.id, users.login, users.alias, users.name, users.surname, password_hashes.hash FROM users LEFT JOIN password_hashes ON users.id = password_hashes.user_id WHERE password_hashes.hash IS NOT NULL");
+    const auto users = conn_->execute("SELECT users.id, users.login, users.alias, users.name, users.surname, password_hashes.hash FROM users LEFT JOIN password_hashes ON users.id = password_hashes.user_id WHERE password_hashes.hash IS NOT NULL");
 
-   // iterate and convert results
-   for( const auto& row : users ) {
-      User obj(row["login"].as< std::string >(), row["hash"].as< std::string >(), row["alias"].as< std::string >(), row["name"].as< std::string >() + row["surname"].as< std::string >());
-      users_.push_back(obj);
-      hash_table_.insert({obj.getUserLogin(), obj.getUserPassword()});
-   }
+    // iterate and convert results
+    for (const auto &row : users)
+    {
+        User obj(row["login"].as<std::string>(), row["hash"].as<std::string>(), row["alias"].as<std::string>(), row["name"].as<std::string>() + row["surname"].as<std::string>());
+        users_.push_back(obj);
+        hash_table_.insert({obj.getUserLogin(), obj.getUserPassword()});
+    }
 }
 
 void Chat::readMessagesInfo()
@@ -66,7 +67,7 @@ void Chat::readMessagesInfo()
     //     return;
     // }
     // std::fstream file = this->openFile(file_path);
-    // int messages_file_len = std::count(std::istreambuf_iterator<char>(file), 
+    // int messages_file_len = std::count(std::istreambuf_iterator<char>(file),
     //          std::istreambuf_iterator<char>(), '\n');
     // file.seekp(0, std::ios::beg); // move to start
     // if (file && (msgs_len < messages_file_len))
@@ -101,14 +102,13 @@ void Chat::start()
 {
     doesChatWork_ = true;
 
-
-     // prepare statements
-    conn_->prepare( "insert_user", "INSERT INTO users ( login, alias, name, surname ) VALUES ( $1, $2, $3, $4 )" );
+    // prepare statements
+    conn_->prepare("insert_user", "INSERT INTO users ( login, alias, name, surname ) VALUES ( $1, $2, $3, $4 )");
     conn_->prepare("insert_hash_pass", "UPDATE password_hashes SET hash = $2 WHERE user_id = (SELECT id FROM users WHERE login = $1);");
-
+    conn_->prepare("insert_message", "INSERT INTO messages ( \"to\", \"from\", text, date) VALUES ( $1, $2, $3, $4 )");
 }
 
-std::shared_ptr<User>  Chat::getUserByLogin(const std::string &login)
+std::shared_ptr<User> Chat::getUserByLogin(const std::string &login)
 {
     /// @brief Finds user with given login if exists
     /// @param login
@@ -116,12 +116,12 @@ std::shared_ptr<User>  Chat::getUserByLogin(const std::string &login)
     std::shared_ptr<User> current_user = nullptr;
 
     const auto users = conn_->execute("SELECT users.id, users.login, users.alias, users.name, users.surname, password_hashes.hash FROM users LEFT JOIN password_hashes ON users.id = password_hashes.user_id WHERE password_hashes.hash IS NOT NULL AND login =  $1", login);
-    if (!users.empty()) {
+    if (!users.empty())
+    {
         for (const auto &row : users)
         {
-            User obj(row["login"].as< std::string >(), row["hash"].as< std::string >(), row["alias"].as< std::string >(), row["name"].as< std::string >() + row["surname"].as< std::string >());
+            User obj(row["login"].as<std::string>(), row["alias"].as<std::string>(), row["hash"].as<std::string>(), row["name"].as<std::string>() + row["surname"].as<std::string>());
             current_user = std::make_shared<User>(obj);
-            
         }
     }
     return current_user;
@@ -145,7 +145,7 @@ void Chat::log_in()
         // Verify password
         const auto password_ok = conn_->execute("SELECT EXISTS ( SELECT 1 FROM users INNER JOIN password_hashes ON users.id = password_hashes.user_id WHERE users.login = $1 AND password_hashes.hash = $2 );", login, hash_pass(password));
 
-        if (currentUser_ == nullptr || (!password_ok.at(0).as< bool>()))
+        if (currentUser_ == nullptr || (!password_ok.at(0).as<bool>()))
         {
             currentUser_ = nullptr; // if password is wrong, reset current user
 
@@ -211,23 +211,19 @@ void Chat::sign_up()
     // Switch to User
     User user = User(login, alias, name, surname);
     currentUser_ = std::make_shared<User>(user);
-    
+
     // Add USER to DATABASE
     // begin transaction
     const auto tr = conn_->transaction();
 
     // execute previously prepared statements
-    tr->execute( "insert_user", login, alias, name, surname);
+    tr->execute("insert_user", login, alias, name, surname);
     tr->execute("insert_hash_pass", login, hash_pass(password));
     // commit transaction
     tr->commit();
 
-
-
     users_.push_back(user);
     hash_table_.insert({login, hash_pass(password)});
-
-
 
     std::cout << "\x1B[32mRegistration Successful!\033[0m\t\t" << std::endl;
 }
@@ -279,10 +275,23 @@ void Chat::write_message()
     if (doesAliasExist(to) || to == "all")
     {
         Message obj_msg = Message(currentUser_->getUserAlias(), to, text);
-        // Update File
-        // std::fstream file = this->openFile(messages_file_path_send_);
-        // file.seekp(0, std::ios::end); // move to end
-        // obj_msg<<file;
+
+        {
+            // begin transaction
+            const auto tr = conn_->transaction();
+
+            auto t = std::time(nullptr);
+            auto tm = *std::localtime(&t);
+            std::ostringstream oss;
+            oss << std::put_time(&tm, "%Y-%m-%d");
+            std::string str_date = oss.str();
+
+            // execute previously prepared statements
+            tr->execute("insert_message", to, currentUser_->getUserAlias(), text, str_date.c_str());
+
+            // commit transaction
+            tr->commit();
+        }
 
         std::cout << "\x1B[32mMessage sent!\033[0m\t\t" << std::endl;
     }
@@ -301,20 +310,19 @@ void Chat::read_messages()
     // this->readMessagesInfo(messages_file_path_receive_, "receive");
     std::cout << "\x1B[90m\nStart of the Chat\n\033[0m\t\t" << std::endl;
 
-    for (auto &message : messages_)
+    const auto messages = conn_->execute("SELECT * FROM messages WHERE (\"to\" =$1 OR \"from\" = $1 OR \"to\"='all') AND date >= NOW() - INTERVAL '1 day' ORDER BY date DESC;", currentUser_->getUserAlias());
+
+    for (const auto &row : messages)
     {
-        if (message.getTo() == currentUser_->getUserAlias() || message.getTo() == "all")
+        if (row[ "from" ].as< std::string >() == currentUser_->getUserAlias())
         {
-            if (message.getFrom() == currentUser_->getUserAlias())
-            {
-                std::cout << "\x1B[36mFrom:" << message.getFrom() << " (me)\033[0m\t\t" << std::endl;
-            }
-            else
-            {
-                std::cout << "\x1B[36mFrom:" << message.getFrom() << "\033[0m\t\t" << std::endl;
-            }
-            std::cout << "\x1B[97m" << message.getText() << "\033[0m\t\t" << std::endl;
+            std::cout << "\x1B[36mFrom:" << row[ "from" ].as< std::string >() << " (me)\033[0m\t\t" << std::endl;
         }
+        else
+        {
+            std::cout << "\x1B[36mFrom:" << row[ "from" ].as< std::string >() << "\033[0m\t\t" << std::endl;
+        }
+        std::cout << "\x1B[97m" << row[ "text" ].as< std::string >() << "\033[0m\t\t" << std::endl;
     }
     std::cout << "\x1B[90m\nEnd of the Chat\n\033[0m\t\t" << std::endl;
 }
