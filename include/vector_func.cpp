@@ -1,5 +1,7 @@
 #include "vector_func.hpp"
+#include <mutex>
 
+std::mutex mutex;
 Vector::Vector (int N) {
     // Randomize it
     std::mt19937 gen(42); //Standard mersenne_twister_engine seeded with 42
@@ -25,7 +27,9 @@ void Vector::calculateSum(const std::vector<int>& vec, int start, int end, int &
     }
     std::cout << std::endl;
     std::cout << "Sum of part " << start << "-" << end << " = " << sum << std::endl;
+    mutex.lock();
     sums += sum;
+    mutex.unlock();
 }
 
 int Vector::sums(int M) {
