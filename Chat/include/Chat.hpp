@@ -18,7 +18,7 @@ class Chat{
     private:
 
         // Connect to database
-        const std::shared_ptr<tao::pq::connection> conn_ = tao::pq::connection::create("dbname=chat_database user=postgres password=qwerty3215 host=localhost port=5432");
+        const std::shared_ptr<tao::pq::connection> conn_ = tao::pq::connection::create("dbname=chat_database user=postgres password=pass host=localhost port=5432");
 
         std::shared_ptr<User> currentUser_ = nullptr;
 
@@ -39,6 +39,7 @@ class Chat{
 
         int hash_func(const std::string& login, int offset);
     public:
+        void cin_data(std::string& login, std::string& password, std::string& alias, std::string& name, std::string& surname);
         void start();
         void readUsersInfo();
         void readMessagesInfo();
@@ -51,5 +52,5 @@ class Chat{
         std::shared_ptr<User> getUserByLogin(const std::string& login);
         bool doesAliasExist(const std::string& alias);
         std::string hash_pass(const std::string& pass);
-        
+
 };

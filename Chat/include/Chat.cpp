@@ -173,11 +173,8 @@ bool Chat::doesAliasExist(const std::string &alias)
 
     return !users.empty();
 }
-void Chat::sign_up()
-{
-    /// @brief Signs up with given login, pass and name. Same logins aren't possible
-    std::string login, password, alias, name, surname;
 
+void Chat::cin_data(std::string& login, std::string& password, std::string& alias, std::string& name, std::string& surname) {
     std::cout << "\x1B[34mlogin (should be unique, private):\033[0m\t\t" << std::endl;
     std::cin >> login;
 
@@ -193,21 +190,32 @@ void Chat::sign_up()
 
     std::cout << "\x1B[34msurname:\033[0m\t\t" << std::endl;
     std::cin >> surname;
+}
+
+void Chat::sign_up()
+{
+    /// @brief Signs up with given login, pass and name. Same logins aren't possible
+    std::string login, password, alias, name, surname;
+
+    cin_data(login, password, alias, name, surname);
 
     if (getUserByLogin(login))
     {
         // throw UserLoginExp();
-        std::cout << "\x1B[31m login is busy, choose another one\033[0m\t\t" << std::endl;
-        sign_up();
+        std::cout << "\x1B[31m login " << login <<" is busy, choose another one\033[0m\t\t" << std::endl;
+        cin_data(login, password, alias, name, surname);
     }
 
     if (doesAliasExist(alias) || alias == "all")
     {
         // throw UserLoginExp();
-        std::cout << "\x1B[31m alias is busy,  it should be unique. Choose another one\033[0m\t\t" << std::endl;
-        sign_up();
+        std::cout << "\x1B[31m alias " << alias <<" is busy,  it should be unique. Choose another one\033[0m\t\t" << std::endl;
+        cin_data(login, password, alias, name, surname);
     }
-
+    std::cout << login << std::endl;
+    std::cout << alias << std::endl;
+    std::cout << surname << std::endl;
+    std::cout << name << std::endl;
     // Switch to User
     User user = User(login, alias, name, surname);
     currentUser_ = std::make_shared<User>(user);
