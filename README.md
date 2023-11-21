@@ -154,3 +154,7 @@ Chat Program with PostgreSQL Database
 * Using this library: [taopq](https://github.com/taocpp/taopq)
 
 ![Structure of database](Chat/database.png)
+
+# TODO:
+
+&#9744; Hide DB login and password
