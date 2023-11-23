@@ -1,9 +1,6 @@
 #include "include/Chat.hpp"
 
-void loop() {
-    Chat chat;
-
-    chat.start();
+void loop(Chat& chat) {
 
     while (chat.doesChatWork()) {
         chat.showMainMenu();
@@ -15,7 +12,10 @@ void loop() {
 // Inspired by "Webinar "Writing a console chat with a mentor"" by SkillFactory
 int main()
 {
-    std::thread l(loop);
+    Chat chat;
+
+    chat.start();
+    std::thread l(loop, std::ref(chat));
     l.join();
     return 0;
 }
