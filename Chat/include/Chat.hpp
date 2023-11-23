@@ -3,6 +3,7 @@
 #include <memory>
 #include "User.hpp"
 #include "Message.hpp"
+#include "Logger.hpp"
 #include <iostream>
 #include <unordered_map>
 #include <string>
@@ -16,7 +17,7 @@ struct UserLoginExp: public std::exception {
 
 class Chat{
     private:
-
+        Logger logger_;
         // Connect to database
         const std::shared_ptr<tao::pq::connection> conn_ = tao::pq::connection::create("dbname=chat_database user=postgres password=pass host=localhost port=5432");
 
@@ -42,8 +43,6 @@ class Chat{
         void cin_data(std::string& login, std::string& password, std::string& alias, std::string& name, std::string& surname);
         void start();
         void readUsersInfo();
-        void readMessagesInfo();
-        std::fstream openFile(const std::string& name);
 
         bool doesChatWork() const {return doesChatWork_;}
         void showMainMenu();

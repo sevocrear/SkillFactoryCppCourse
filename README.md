@@ -158,3 +158,7 @@ Chat Program with PostgreSQL Database
 # TODO:
 
 &#9744; Hide DB login and password
+
+
+# References
+* [Guide to work with files](https://www.studyplan.dev/pro-cpp/file-streams)

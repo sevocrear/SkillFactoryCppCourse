@@ -25,21 +25,6 @@ std::string Chat::hash_pass(const std::string &pass)
     return std::to_string(hash);
 }
 
-std::fstream Chat::openFile(const std::string &name)
-{
-    // USERS INFO
-    std::fstream user_file = std::fstream(name, std::ios::in | std::ios::out);
-    if (!user_file)
-    {
-        // Для создания файла используем параметр ios::trunc
-        user_file = std::fstream(name, std::ios::in | std::ios::out | std::ios::trunc);
-        fs::permissions(name,
-                        fs::perms::group_write | fs::perms::others_all,
-                        fs::perm_options::remove);
-    }
-    return user_file;
-}
-
 void Chat::readUsersInfo()
 {
     // query data
@@ -52,50 +37,6 @@ void Chat::readUsersInfo()
         users_.push_back(obj);
         hash_table_.insert({obj.getUserLogin(), obj.getUserPassword()});
     }
-}
-
-void Chat::readMessagesInfo()
-{
-    // int msgs_len = 0;
-    // if (flag == "receive") {
-    //     msgs_len = messages_len_receive_;
-    // }
-    // else if (flag == "send") {
-    //     msgs_len = messages_len_send_;
-    // }
-    // else {
-    //     return;
-    // }
-    // std::fstream file = this->openFile(file_path);
-    // int messages_file_len = std::count(std::istreambuf_iterator<char>(file),
-    //          std::istreambuf_iterator<char>(), '\n');
-    // file.seekp(0, std::ios::beg); // move to start
-    // if (file && (msgs_len < messages_file_len))
-    // {
-    //     // Чтение файла и обновление списка пользователей
-    //     int idx = 0;
-    //     while (!file.eof() && (idx < messages_file_len))
-    //     {
-    //         Message obj;
-    //         obj>>file;
-    //         if (idx >= msgs_len) {
-    //             messages_.push_back(obj);
-    //         }
-    //         idx ++;
-    //     }
-    //     msgs_len = messages_file_len;
-    //     if (flag == "receive") {
-    //     messages_len_receive_ = messages_file_len;
-    //     }
-    //     else if (flag == "send") {
-    //         messages_len_send_ = messages_file_len;
-    //     }
-    // }
-    // else if (!file)
-    // {
-    //     std::cout << "Could not open file "<< file_path << "!" << '\n';
-    //     return;
-    // }
 }
 
 void Chat::start()
@@ -314,8 +255,6 @@ void Chat::read_messages()
 {
     // Get Info From txt files
     this->readUsersInfo();
-    // this->readMessagesInfo(messages_file_path_send_, "send");
-    // this->readMessagesInfo(messages_file_path_receive_, "receive");
     std::cout << "\x1B[90m\nStart of the Chat\n\033[0m\t\t" << std::endl;
 
     const auto messages = conn_->execute("SELECT * FROM messages WHERE (\"to\" =$1 OR \"from\" = $1 OR \"to\"='all') AND date >= NOW() - INTERVAL '1 day' ORDER BY date DESC;", currentUser_->getUserAlias());
@@ -334,6 +273,7 @@ void Chat::read_messages()
     }
     std::cout << "\x1B[90m\nEnd of the Chat\n\033[0m\t\t" << std::endl;
 }
+
 void Chat::showChatMenu()
 {
     /// @brief Shows Chan Menu to send, read messages and log out
