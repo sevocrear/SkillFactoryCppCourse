@@ -1,9 +1,6 @@
 #include "include/Chat.hpp"
-// #include "Chat.hpp" // for cmakeLists
 
-// Inspired by "Webinar "Writing a console chat with a mentor"" by SkillFactory
-int main()
-{
+void loop() {
     Chat chat;
 
     chat.start();
@@ -14,5 +11,11 @@ int main()
             chat.showChatMenu();
         }
     }
+}
+// Inspired by "Webinar "Writing a console chat with a mentor"" by SkillFactory
+int main()
+{
+    std::thread l(loop);
+    l.join();
     return 0;
 }

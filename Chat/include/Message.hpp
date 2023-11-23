@@ -16,6 +16,5 @@ class Message{
         const std::string& getTo() const {return to_;}
         const std::string& getText() const {return text_;}
 
-		std::fstream& operator >>(std::fstream& is);
-	    std::ostream& operator <<(std::ostream& os);
+	    void write(std::fstream& os);
 };

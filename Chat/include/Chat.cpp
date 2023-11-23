@@ -42,7 +42,7 @@ void Chat::readUsersInfo()
 void Chat::start()
 {
     doesChatWork_ = true;
-
+    std::cout << logger_.file_read_line() << std::endl;
     // prepare statements
     conn_->prepare("insert_user", "INSERT INTO users ( login, alias, name, surname ) VALUES ( $1, $2, $3, $4 )");
     conn_->prepare("insert_hash_pass", "UPDATE password_hashes SET hash = $2 WHERE user_id = (SELECT id FROM users WHERE login = $1);");
@@ -243,6 +243,7 @@ void Chat::write_message()
         }
 
         std::cout << "\x1B[32mMessage sent!\033[0m\t\t" << std::endl;
+        logger_.write_msg_info(obj_msg);
     }
     else
     {

@@ -22,5 +22,6 @@ include_directories(include)
 # Add the executable target
 add_executable(chat ${SOURCES})
 
-target_link_libraries(chat taocpp::taopq)
+target_link_libraries(chat taocpp::taopq -pthread)
+
 set_target_properties(chat PROPERTIES CXX_STANDARD 17)

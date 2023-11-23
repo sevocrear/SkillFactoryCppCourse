@@ -3,6 +3,8 @@
 #include <fstream>
 #include <iostream>
 #include <memory>
+#include <shared_mutex>
+#include <thread>
 #ifndef __has_include
   static_assert(false, "__has_include not supported");
 #else
@@ -17,18 +19,20 @@
      namespace fs = boost::filesystem;
 #  endif
 #endif
-#include <system_error>
+#include "Message.hpp"
 
 class Logger {
     private:
         std::string file_name_;
         std::fstream file_;
         void file_init(const std::string& file_name);
+        std::shared_mutex shared_mutex_;
 
     public:
         Logger();
         std::string file_read_line();
         Logger(const std::string& file_name);
+        void write_msg_info(const Message& msg);
         ~Logger();
 
 };
