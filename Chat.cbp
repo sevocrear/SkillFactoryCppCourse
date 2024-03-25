@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Chat"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\;CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\;CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\;CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5LinguistTools\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Chat">
+				<Option output="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Chat" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add directory="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug"/>
+					<Add directory="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest"/>
+					<Add directory="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Chat_autogen/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 Chat"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Chat/fast">
+				<Option output="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Chat" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add directory="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug"/>
+					<Add directory="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest"/>
+					<Add directory="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Chat_autogen/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 Chat/fast"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="translate_my_ru">
+				<Option working_dir="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 translate_my_ru"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="translations">
+				<Option working_dir="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 translations"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Chat_autogen">
+				<Option working_dir="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 Chat_autogen"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/CommandLineInterface.cpp">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/CommandLineInterface.h">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Database.cpp">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Database.h">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Message.cpp">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Message.h">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Parsing.cpp">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Parsing.h">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Test.cpp">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/User.cpp">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/User.h">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/loginform.cpp">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/loginform.h">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/loginform.ui">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/mainwindow.cpp">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/mainwindow.h">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/mainwindow.ui">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/registrationform.cpp">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/registrationform.h">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/registrationform.ui">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/sha1.cpp">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/sha1.h">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/startscreen.cpp">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/startscreen.h">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/startscreen.ui">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/translations/my_ru.ts.rule">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Chat_autogen/mocs_compilation.cpp">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/my_ru.qm">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/my_ru.qm.rule">
+			<Option target="Chat"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QComposePlatformInputContextPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSEmulatorIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsEglDeviceIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsGbmIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSX11IntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevKeyboardPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevMousePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTabletPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTouchScreenPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QIbusPlatformInputContextPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLibInputPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLinuxFbIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalEglIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QVncIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbEglIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbGlxIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5LinguistTools/Qt5LinguistToolsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5LinguistTools\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5LinguistTools/Qt5LinguistToolsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5LinguistTools\"/>
+		</Unit>
+		<Unit filename="/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/../../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5LinguistTools/Qt5LinguistToolsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5LinguistTools\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

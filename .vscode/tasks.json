@@ -12,7 +12,8 @@
                 "${fileDirname}/include/*.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.out",
-                "-pthread"
+                "-pthread",
+                "-std=c++20"
             ],
             "options": {
                 "cwd": "${fileDirname}"

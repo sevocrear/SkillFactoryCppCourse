@@ -1,0 +1,178 @@
+{
+	"BUILD_DIR" : "/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Chat_autogen",
+	"CMAKE_BINARY_DIR" : "/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest",
+	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
+	"CMAKE_SOURCE_DIR" : "/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest",
+	"HEADERS" : 
+	[
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/CommandLineInterface.h",
+			"MU",
+			"EXY53EAHJJ/moc_CommandLineInterface.cpp"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Database.h",
+			"MU",
+			"EXY53EAHJJ/moc_Database.cpp"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Message.h",
+			"MU",
+			"EXY53EAHJJ/moc_Message.cpp"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Parsing.h",
+			"MU",
+			"EXY53EAHJJ/moc_Parsing.cpp"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/User.h",
+			"MU",
+			"EXY53EAHJJ/moc_User.cpp"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/loginform.h",
+			"MU",
+			"EXY53EAHJJ/moc_loginform.cpp"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/mainwindow.h",
+			"MU",
+			"EXY53EAHJJ/moc_mainwindow.cpp"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/registrationform.h",
+			"MU",
+			"EXY53EAHJJ/moc_registrationform.cpp"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/sha1.h",
+			"MU",
+			"EXY53EAHJJ/moc_sha1.cpp"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/startscreen.h",
+			"MU",
+			"EXY53EAHJJ/moc_startscreen.cpp"
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Chat_autogen/include",
+	"MOC_COMPILATION_FILE" : "/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Chat_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB" ],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug",
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest",
+		"/usr/include/x86_64-linux-gnu/qt5",
+		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
+		"/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++",
+		"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
+		"/usr/include/c++/9",
+		"/usr/include/x86_64-linux-gnu/c++/9",
+		"/usr/include/c++/9/backward",
+		"/usr/lib/gcc/x86_64-linux-gnu/9/include",
+		"/usr/local/include",
+		"/usr/include/x86_64-linux-gnu",
+		"/usr/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : true,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/usr/bin/g++",
+		"-dM",
+		"-E",
+		"-c",
+		"/usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/Chat_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : 
+	[
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/ui_loginform.h",
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/ui_mainwindow.h",
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/ui_registrationform.h",
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/ui_startscreen.h"
+	],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 14,
+	"PARSE_CACHE_FILE" : "/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/CMakeFiles/Chat_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
+	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
+	"QT_VERSION_MAJOR" : 5,
+	"SETTINGS_FILE" : "/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/CMakeFiles/Chat_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/CommandLineInterface.cpp",
+			"MU"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Database.cpp",
+			"MU"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Message.cpp",
+			"MU"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Parsing.cpp",
+			"MU"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/Test.cpp",
+			"MU"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/User.cpp",
+			"MU"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/loginform.cpp",
+			"MU"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/mainwindow.cpp",
+			"MU"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/registrationform.cpp",
+			"MU"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/sha1.cpp",
+			"MU"
+		],
+		[
+			"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/startscreen.cpp",
+			"MU"
+		]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : [],
+	"UIC_SKIP" : 
+	[
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/loginform.ui",
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/mainwindow.ui",
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/registrationform.ui",
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/CPLUS-UI-ChatCPPTest/sources/startscreen.ui",
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/ui_loginform.h",
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/ui_mainwindow.h",
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/ui_registrationform.h",
+		"/mnt/data/Yandex.Disk/Catalog_SevoCrear/SelfDevelopment_Practice/Programming/C++/build-CPLUS-UI-ChatCPPTest-Desktop-Debug/ui_startscreen.h"
+	],
+	"UIC_UI_FILES" : [],
+	"VERBOSITY" : 0
+}
