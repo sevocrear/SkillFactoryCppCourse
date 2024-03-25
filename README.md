@@ -10,6 +10,7 @@ sudo apt-get install -y build-essential cmake qt5-default qttools5-dev
 ```
 
 ```
+mkdir build && cd build
 cmake . && make
 ```
 
